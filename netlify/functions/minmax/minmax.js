@@ -3,7 +3,7 @@ function minmax(array) {
   array.sort((a, b) => a - b)
   const min = array[0]
   const max = array[array.length - 1]
-  return `El mayor es ${max} y el menor es ${min}`
+  return { "mínimo" : min, "máximo" : max}
 }
 
 const handler = async (event) => {
@@ -12,7 +12,7 @@ const handler = async (event) => {
     const list = numeros.split(", ")
     return {
       statusCode: 200,
-      body: JSON.stringify({ message: minmax(list) }),
+      body: JSON.stringify({ message: minmax(list)}),
       // // more keys you can return:
       // headers: { "headerName": "headerValue", ... },
       // isBase64Encoded: true,
