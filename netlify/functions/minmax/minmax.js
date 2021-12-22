@@ -1,12 +1,18 @@
 // Docs on event and context https://www.netlify.com/docs/functions/#the-handler-method
-const mayorMenor = (array) => array.sort((a, b) => a - b)
+function minmax(array) {
+  array.sort((a, b) => a - b)
+  const min = array[0]
+  const max = array[array.length - 1]
+  return `El mayor es ${max} y el menor es ${min}`
+}
 
 const handler = async (event) => {
   try {
-    const subject = event.queryStringParameters.name || 'World'
+    const numeros = event.queryStringParameters.param
+    const list = numeros.split(", ")
     return {
       statusCode: 200,
-      body: JSON.stringify({ message: `Hello ${subject}` }),
+      body: JSON.stringify({ message: minmax(list) }),
       // // more keys you can return:
       // headers: { "headerName": "headerValue", ... },
       // isBase64Encoded: true,
