@@ -8,6 +8,7 @@ function minmax(array) {
 
 const handler = async (event) => {
   try {
+    // minmax?param=1&param=2&param=450
     const numeros = event.queryStringParameters.param
     const list = numeros.split(", ")
     return {
